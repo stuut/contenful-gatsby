@@ -4,8 +4,8 @@ try {
   contentfulConfig = require('./.contentful')
 } catch (_) {
   contentfulConfig = {
-    spaceId: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
+    spaceId: 'rpvotwhcoo6o',
+    accessToken: '4b114f8f2c90a9525c23370585b8880381a88e807206dd439086e2be272eea9f',
   }
 } finally {
   const { spaceId, accessToken } = contentfulConfig
