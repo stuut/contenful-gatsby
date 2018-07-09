@@ -27,6 +27,13 @@ class BlogPostTemplate extends React.Component {
           >
             {post.publishDate}
           </p>
+          <p
+            style={{
+              display: 'block',
+            }}
+          >
+            {post.author.name}
+          </p>
           <div
             dangerouslySetInnerHTML={{
               __html: post.body.childMarkdownRemark.html,
@@ -54,6 +61,10 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      author{
+        id
+        name
       }
     }
   }

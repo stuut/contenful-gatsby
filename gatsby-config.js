@@ -1,21 +1,4 @@
-let contentfulConfig
-
-try {
-  contentfulConfig = require('./.contentful')
-} catch (_) {
-  contentfulConfig = {
-    spaceId: 'rpvotwhcoo6o',
-    accessToken: '4b114f8f2c90a9525c23370585b8880381a88e807206dd439086e2be272eea9f',
-  }
-} finally {
-  const { spaceId, accessToken } = contentfulConfig
-
-  if (!spaceId || !accessToken) {
-    throw new Error(
-      'Contentful spaceId and the delivery token need to be provided.'
-    )
-  }
-}
+require('dotenv').config()
 
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
@@ -24,7 +7,10 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID || '',
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+      },
     },
   ],
 }
